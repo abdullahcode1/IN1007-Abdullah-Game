@@ -47,7 +47,7 @@ public class GameView extends UserView {
 
     @Override
     protected void paintForeground(Graphics2D g) {
-        int healthValue = Game.getMainWorld().student.getCurrentHealth();
+        int healthValue = Game.getLevels().currentStudent.getCurrentHealth();
         g.drawImage(new ImageIcon("data/img/health/health-" + healthValue + ".png").getImage(), 10, 425, this);
 
     }

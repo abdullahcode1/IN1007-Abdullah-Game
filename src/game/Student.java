@@ -91,7 +91,7 @@ public class Student extends Walker {
         this.currentHealth = currentHealth;
         System.out.println(currentHealth);
         if (this.currentHealth == 0) {
-            Game.loadWorld(Game.getView());
+            Game.getLevels().deadStudent();
         }
     }
 }

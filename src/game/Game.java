@@ -10,16 +10,20 @@ public class Game {
 
 
     private static GameView view;
-    private static MainWorld mainWorld;
+
+    private static Levels levels;
 
     /**
      * Initialise a new Game.
      */
+
     public Game() {
-        mainWorld = new MainWorld();
+        MainWorld mainWorld = new MainWorld();
+
+        levels = new Levels();
 
         view = new GameView(mainWorld, 800, 480);
-        loadWorld(view);
+        levels.loadLevel(view, 1);
 
         GiveFocus focusChecker = new GiveFocus(view);
         view.addMouseListener(focusChecker);
@@ -58,28 +62,13 @@ public class Game {
     }
 
     public static void resetStudent() {
-        ArrayList<Point> collectedPoints = Game.getMainWorld().student.getCollectedFlippers();
+        ArrayList<Point> collectedPoints = Game.getLevels().currentStudent.getCollectedFlippers();
         collectedPoints.stream().filter(n -> !n.getState()).forEach(n -> n.setState(false));
-        Game.getMainWorld().student.setCollectedFlippers(collectedPoints);
+        Game.getLevels().currentStudent.setCollectedFlippers(collectedPoints);
     }
 
-    public static void loadWorld(GameView view) {
-        view.getWorld().stop();
-
-        mainWorld = new MainWorld();
-
-        view.setWorld(mainWorld);
-        StudentController controllerOne = new StudentController(Game.getMainWorld().student);
-        view.addKeyListener(controllerOne);
-        mainWorld.start();
+    public static Levels getLevels() {
+        return levels;
     }
 
-    public void resetGame() {
-        view.getWorld().stop();
-        loadWorld(Game.getView());
-    }
-
-    public static MainWorld getMainWorld() {
-        return mainWorld;
-    }
 }

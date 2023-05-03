@@ -18,4 +18,10 @@ public class FinishLine extends StaticBody {
         setLineColor(Color.green);
         addImage(new BodyImage("data/gifs/portal-blue.gif", 4));
     }
+
+    public void setNextLevel(int givenlevel) { nextLevel = givenlevel;}
+
+    public int getNextLevel() {
+        return nextLevel;
+    }
 }

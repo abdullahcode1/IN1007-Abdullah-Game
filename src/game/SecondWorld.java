@@ -4,11 +4,12 @@ import city.cs.engine.BoxShape;
 import city.cs.engine.World;
 import org.jbox2d.common.Vec2;
 
-public class MainWorld extends World {
+public class SecondWorld extends World {
+
     final Student student;
     private Tracker trackerMain;
 
-    public MainWorld() {
+    public SecondWorld() {
         super();
         //init ground
         Populate();
@@ -34,12 +35,9 @@ public class MainWorld extends World {
     }
 
     private void Populate() {
-
         FinishLine finishLine = new FinishLine(this, new BoxShape(0.66f, 2f));
         finishLine.setPosition(new Vec2(15f, -3f));
         CreateBoundary();
-
-        finishLine.setNextLevel(1);
 
         Point pointOne = new Point(this, new Vec2(-9f, -6f));
         Point pointTwo = new Point(this, new Vec2(17.5f, 7.5f));
@@ -104,6 +102,7 @@ public class MainWorld extends World {
     }
 
     public Tracker getTracker() { return trackerMain;}
+
 
 
 }

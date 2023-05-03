@@ -23,6 +23,7 @@ public class CollisionHandler implements CollisionListener {
         } else if (e.getOtherBody() instanceof FinishLine) {
             e.getOtherBody().destroy();
             student.destroy();
+            Game.getLevels().loadLevel(Game.getView(), ((FinishLine) e.getOtherBody()).getNextLevel());
         }
     }
 }
