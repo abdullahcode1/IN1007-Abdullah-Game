@@ -35,7 +35,7 @@ public class Student extends Walker {
     public void jump(float speed) {
         Vec2 v = this.getLinearVelocity();
 
-        if (Math.abs(v.y) < 0.01F) {
+        if (Math.abs(v.y) < 0.03F) {
             this.setLinearVelocity(new Vec2(v.x, speed));
         }
     }

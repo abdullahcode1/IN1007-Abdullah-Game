@@ -1,4 +1,4 @@
-package obstacle;
+package game;
 
 import city.cs.engine.BoxShape;
 import city.cs.engine.StaticBody;

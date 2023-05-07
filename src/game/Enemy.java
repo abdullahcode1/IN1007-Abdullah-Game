@@ -19,16 +19,18 @@ public class Enemy extends Walker {
         this.addImage(new BodyImage("data/gifs/enemy/enemy-move-right.gif",2));
     }
 
+
+
     public void SwitchDirection() {
         stopWalking();
         if (direction == 1) {
             direction = 0;
-            startWalking(-5f);
+            startWalking(-3f);
             this.removeAllImages();
             this.addImage(new BodyImage("data/gifs/enemy/enemy-move-left.gif",2));
         } else {
             direction = 1;
-            startWalking(5f);
+            startWalking(3f);
             this.removeAllImages();
             this.addImage(new BodyImage("data/gifs/enemy/enemy-move-right.gif",2));
         }

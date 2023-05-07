@@ -1,5 +1,10 @@
 package game;
 
+import game.worlds.FirstWorld;
+import game.worlds.MainWorld;
+import game.worlds.SecondWorld;
+import game.worlds.ThirdWorld;
+
 import javax.swing.*;
 import java.util.ArrayList;
 
@@ -8,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Game {
 
-
+private Levels world;
     private static GameView view;
 
     private static Levels levels;
@@ -22,30 +27,24 @@ public class Game {
 
         levels = new Levels();
 
-        view = new GameView(mainWorld, 800, 480);
-        levels.loadLevel(view, 1);
+        view = new GameView(mainWorld, 1000, 563, mainWorld.getBackground());
+        levels.loadLevel(view, 0);
 
         GiveFocus focusChecker = new GiveFocus(view);
         view.addMouseListener(focusChecker);
-        //4. create a Java window (frame) and add the game
-        //   view to it
+
         final JFrame frame = new JFrame("Phase Switch");
         frame.add(view);
 
-        // enable the frame to quit the application
-        // when the x button is pressed
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationByPlatform(true);
-        // don't let the frame be resized
+
         frame.setResizable(false);
-        // size the frame to fit the world view
+
         frame.pack();
-        // finally, make the frame visible
+
         frame.setVisible(true);
 
-        //optional: uncomment this to make a debugging view
-
-        // view.setGridResolution(1);
 
         view.requestFocus();
     }

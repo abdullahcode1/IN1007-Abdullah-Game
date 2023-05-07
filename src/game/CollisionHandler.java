@@ -2,7 +2,6 @@ package game;
 
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
-import obstacle.Obstacle;
 
 public class CollisionHandler implements CollisionListener {
 
@@ -23,7 +22,8 @@ public class CollisionHandler implements CollisionListener {
         } else if (e.getOtherBody() instanceof FinishLine) {
             e.getOtherBody().destroy();
             student.destroy();
-            Game.getLevels().loadLevel(Game.getView(), ((FinishLine) e.getOtherBody()).getNextLevel());
+            int nextLevel = ((FinishLine) e.getOtherBody()).getNextLevel();
+            Game.getLevels().loadLevel(Game.getView(), nextLevel);
         }
     }
 }

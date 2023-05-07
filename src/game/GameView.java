@@ -13,9 +13,9 @@ public class GameView extends UserView {
     private int maxX = 20;
     private Image background;
 
-    public GameView(World world, int width, int height) {
+    public GameView(World world, int width, int height, String backgroundResource) {
         super(world, width, height);
-        background = new ImageIcon("data/img/background.png").getImage();
+        background = new ImageIcon(backgroundResource).getImage();
     }
 
     public void getGameViewCentre(Vec2 studentPosition) {

@@ -26,7 +26,7 @@ public class StudentController implements KeyListener {
             student.startWalking(5);
             student.setAngleDegrees(360);
         } else if (code == KeyEvent.VK_SPACE) {
-            student.jump(10);
+            student.jump(12);
         }
     }
 

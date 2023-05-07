@@ -17,7 +17,7 @@ public class Point extends StaticBody {
     public Point(World world, Vec2 position) {
         super(world, pointShape);
         setFillColor(Color.MAGENTA);
-        this.addImage(new BodyImage("data/gifs/tech-pickup.gif", 2));
+        this.addImage(new BodyImage("data/gifs/blue-coin.gif", 2));
         savedPosition = position;
         setPosition(savedPosition);
     }
